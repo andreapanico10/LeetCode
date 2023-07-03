@@ -1,0 +1,29 @@
+# https://leetcode.com/problems/validate-binary-search-tree/?envType=study-plan-v2&envId=top-interview-150
+
+# 98. Validate Binary Search Tree
+
+# Version 1: # WE NEED BST WAY TO REPRESENT AN ARRAY 
+
+# INPUT: given a ROOT
+# OUTPUT: determine if it is a valid binary search tree (BST).
+
+class TreeNode:
+	def __init__(self, val=0, left=None, right=None):
+		self.val = val
+		self.left = left
+		self.right = right
+		
+	def parent(i):
+		return i//2
+	
+	def left(i):
+		return 2*i
+	
+	def right(i):
+		return 2*i +1
+
+def is_valid_BST(root=[2,1,3]):
+	print(f"Parent: {TreeNode.parent(1)} Left: {TreeNode.left(1)} Right: {TreeNode.right(1)}")
+
+if __name__ == "__main__":
+	is_valid_BST()
