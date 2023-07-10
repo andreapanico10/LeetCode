@@ -1,0 +1,60 @@
+# https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/?envType=study-plan-v2&envId=top-interview-150
+
+# 82. Remove Duplicates from Sorted List II
+# VERSION 1
+
+# INPUT: head of a sorted linked list
+# OUTPUT:  delete all nodes that have duplicate numbers, 
+# leaving only distinct numbers from the original list. Return the linked list sorted as well.
+
+class LinkedListNode:
+	def __init__(self, val=0, next=None):
+		self.val = val
+		self.next = next
+		
+	def print_linked_list(self):
+		node = self
+		while node.next:
+			print(node.val)
+			node = node.next
+		print(node.val)
+		
+	
+
+def remove_duplicates_from_sorted_list(head = [1,2,3,3,4,4,4,5]):
+	
+	
+	start_node = LinkedListNode(head[0])
+	prev = start_node
+	
+	for num in head[1:]: 
+		
+		linked_list_node = LinkedListNode(num)
+		prev.next = linked_list_node
+		prev = linked_list_node
+	
+	#start_node.print_linked_list()
+	
+	node = start_node
+	actual = start_node
+	while node.next:
+		
+		duplicate_counter = 0
+		node_scanner = node
+		while node_scanner.next.val == actual.val:
+			duplicate_counter += 1
+			node_scanner = node_scanner.next
+			
+		if duplicate_counter != 0:
+			print(f"{node_scanner.val} is not unique") 
+		else:
+
+			start_node.next = actual
+			actual = actual.next	
+				
+		node = node.next
+		
+	start_node.print_linked_list()
+    
+if __name__ == "__main__":
+	remove_duplicates_from_sorted_list()

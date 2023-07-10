@@ -1,0 +1,25 @@
+from integer_to_roman_1 import integer_to_roman
+
+def test():
+	assert integer_to_roman(1) == "I"
+	assert integer_to_roman(3) == "III"
+	assert integer_to_roman(4) == "IV"
+	assert integer_to_roman(5) == "V"
+	assert integer_to_roman(7) == "VII"
+	assert integer_to_roman(8) == "VIII"
+	assert integer_to_roman(9) == "IX"
+	assert integer_to_roman(10) == "X"
+	assert integer_to_roman(20) == "XX"
+	assert integer_to_roman(30) == "XXX"
+	assert integer_to_roman(40) == "XL"
+	assert integer_to_roman(50) == "L"
+	assert integer_to_roman(60) == "LX"
+	assert integer_to_roman(80) == "LXXX"
+	assert integer_to_roman(90) == "XC"
+	assert integer_to_roman(101) == "CI"
+	assert integer_to_roman(299) == "CCXCIX"
+	assert integer_to_roman(1980) == "MCMLXXX"
+	assert integer_to_roman(2500) == "MMD"
+	assert integer_to_roman(3000) == "MMM"
+	assert integer_to_roman(3999) == "MMMCMXCIX"
+	

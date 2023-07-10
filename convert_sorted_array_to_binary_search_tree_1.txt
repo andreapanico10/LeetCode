@@ -1,0 +1,70 @@
+# https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/?envType=study-plan-v2&envId=top-interview-150
+# 108. Convert Sorted Array to Binary Search Tree
+
+# VERSION 1
+
+# INPUT: array of integers ascending ordered
+# OUTPUT:height balanced binary search tree
+
+class TreeNode:
+	def __init__(self, val=0, left=None, right=None):
+		self.val = val
+		self.right = right
+		self.left = left
+		
+	def __str__(self):
+		if self.right != None and self.left != None:
+			return f"Node val: {self.val}, left: {self.left.val}, right: {self.right.val}"
+		elif self.right != None:
+			return f"Node val: {self.val}, left: None, right: {self.right.val}"
+		elif self.left != None:
+			return f"Node val: {self.val}, left: {self.left.val}, right: None"
+		else:
+			return f"Node val: {self.val}"
+
+
+	def binary_search_convertion(self, nums):
+		
+		if len(nums) == 0:
+			return None
+		
+		else:
+			middle = (len(nums))//2
+			
+			root = TreeNode(nums[middle])
+			 						
+			# Left subtree		
+			root.left = self.binary_search_convertion(nums[:middle])
+			# Right subtree
+			root.right = self.binary_search_convertion(nums[middle+1:]) 
+			
+			return root
+			
+	def print_BST(self):
+		
+		if self == None:
+			return
+						
+		print(self.val)
+		if self.left:
+			print(self.left.val)
+		else: print(None)
+		if self.right:
+			print(self.right.val)
+		else: print(None)
+		
+		if self.left:
+			self.left.print_BST()
+		if self.right:
+			self.right.print_BST()
+			  		
+def convert_sorted_array_to_binary_search_tree(nums=[-10,-3,0,5,9]):
+	
+	tree_root = TreeNode(None)
+	tree_root = tree_root.binary_search_convertion(nums)
+	tree_root.print_BST()
+		
+	
+
+if __name__ == "__main__":
+	convert_sorted_array_to_binary_search_tree()

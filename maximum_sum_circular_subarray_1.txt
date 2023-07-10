@@ -1,0 +1,10 @@
+# https://leetcode.com/problems/maximum-sum-circular-subarray/?envType=study-plan-v2&envId=top-interview-150
+# 918. Maximum Sum Circular Subarray
+# VERSION: 1
+
+# INPUT: circular integer array nums of length n
+# OUTPUT: return maximum possible sum of a non-empty subarray of nums
+
+#A circular array means the end of the array connects to the beginning of the array. Formally, the next element of nums[i] is nums[(i + 1) % n] and the previous element of nums[i] is nums[(i - 1 + n) % n]
+
+# Kadane's algorithm --> I don't know it
