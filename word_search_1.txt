@@ -13,7 +13,10 @@ import numpy as np
 
 def word_search(board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"):
 	
+	# matrix dimensions
 	n, m = len(board), len(board[0]) 
+	
+	# reduced dimensionality
 	board = np.ravel(board)
 	
 	neighbors = {}
@@ -41,7 +44,6 @@ def word_search(board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],
 	
 	possibilities = [i for i, j in enumerate(list(board)) if j == word[0]]
 	
-	
 	for idx in possibilities:
 		local_neighbors = neighbors.copy()
 		board_pointer = idx
@@ -50,14 +52,17 @@ def word_search(board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],
 		constructed_indexes = [idx]
 		
 		for word_letter in word[1:]:
-			print([list(board)[num] for num in local_neighbors[board_pointer]])
 			if word_letter not in [list(board)[num] for num in local_neighbors[board_pointer]]:
 				break
 			else:
+				this_letter_possibilities = [i for i, j in enumerate(local_neighbors[board_pointer]) if board[j] == word_letter]
+				poss = []
+				for index in this_letter_possibilities:
+					poss.append(local_neighbors[board_pointer][index])
+				
 				constructed_word += word_letter	
 				new_board_pointer = local_neighbors[board_pointer][[list(board)[num] for num in local_neighbors[board_pointer]].index(word_letter)]
 				constructed_indexes.append(new_board_pointer)
-				
 				local_neighbors[new_board_pointer].remove(board_pointer) 
 				if constructed_word == word:
 					print(f"Word founded: {word}")
