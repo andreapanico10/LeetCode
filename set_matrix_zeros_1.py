@@ -2,7 +2,8 @@
 
 # 73. Set Matrix Zeroes
 
-# VERSION 1
+# VERSION 1: Solution in O(nm) --> Try to solve in O(n)... How --> if you scan the first 
+# element ... doesn't scan all the first anymore,
 
 # INPUT: mxn integer matrix,  
 # OUTPUT:if an element is 0, set is entire row and column = 0
